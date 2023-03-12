@@ -3,7 +3,7 @@
 
 def build_heap(data):
      n = len(data)
-    for i in range(n // 2 - 1, -1, -1):
+    for i in range(n // 2 - 1, -1, -1)
         if 2 * i + 2 < n:
             if data[i] > min(data[2 * i + 1], data[2 * i + 2]):
                 return False
