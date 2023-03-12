@@ -18,7 +18,7 @@ def main():
     if "I" in atbilde:
        n = int(input())
        parents = list(map(int,input().split()))
-       assert len(iterable) == n
+       assert len(parents) == n
        swaps = heapsort(parents)
        print(len(swaps))
        for i, j in swaps:
@@ -31,7 +31,7 @@ def main():
                  with open(file) as file1:
                     n = int(file1.readline())
                     parents = list(map(int, file1.readline().split()))
-                    assert len(iterable) == n
+                    assert len(parents) == n
                     swaps = heapsort(parents)
                     print(len(swaps))
                     for i, j in swaps:
