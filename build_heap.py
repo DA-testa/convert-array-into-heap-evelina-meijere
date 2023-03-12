@@ -2,11 +2,11 @@
 import heapq as heap
 
 
-def heapsort(iterable):
-    h = []
-    for value in iterable:
-        heappush(h, value) # Push the value item onto the heap, maintaining the heap invariant.
-    return [heappop(h) for i in range(len(h))] # Pop and return the smallest item from the heap, maintaining the heap invariant. If the heap is empty, IndexError is raised. To access the smallest item without popping it, use heap[0].
+def heapsort(kaudze):
+    swap = []
+    for value in kaudzee:
+        heappush(swap, value) # Ieliek vērtības kaudzē nemainot to kārtību
+    return [heappop(swap) for i in range(len(swap))] # Atgriež mazāko vērtību nemainot kaudzes kārtību 
 
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
@@ -18,8 +18,8 @@ def main():
     if "I" in atbilde:
        n = int(input())
        h = list(map(int,input().split()))
-       assert len(h) == n
-       swaps = heapsort(h)
+       assert len(swap) == n
+       swaps = heapsort(swap)
        print(len(swaps))
        for i, j in swaps:
            print(i,j)
@@ -31,8 +31,8 @@ def main():
                  with open(file) as file1:
                     n = int(file1.readline())
                     h = list(map(int, file1.readline().split()))
-                    assert len(h) == n
-                    swaps = heapsort(h)
+                    assert len(swap) == n
+                    swaps = heapsort(swap)
                     print(len(swaps))
                     for i, j in swaps:
                         print(i, j)
