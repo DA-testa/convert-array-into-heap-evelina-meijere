@@ -2,14 +2,11 @@
 
 
 
-from queue import PriorityQueue
-
-def find_min_heap(queue):
-    min_element = float('inf')
-    for elem in queue.queue:
-        if elem < min_element:
-            min_element = elem
-    return min_element
+def heapsort(iterable):
+    h = []
+    for value in iterable:
+        heappush(h, value)
+    return [heappop(h) for i in range(len(h))]
 
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
@@ -21,8 +18,8 @@ def main():
     if "I" in atbilde:
        n = int(input())
        parents = list(map(int,input().split()))
-       assert len(min_element) == n
-       swaps = find_min_heap(min_element)
+       assert len(iterable) == n
+       swaps = heapsort(parents)
        print(len(swaps))
        for i, j in swaps:
            print(i,j)
@@ -34,8 +31,8 @@ def main():
                  with open(file) as file1:
                     n = int(file1.readline())
                     parents = list(map(int, file1.readline().split()))
-                    assert len(min_element) == n
-                    swaps = find_min_heap(min_element)
+                    assert len(iterable) == n
+                    swaps = heapsort(parents)
                     print(len(swaps))
                     for i, j in swaps:
                         print(i, j)
