@@ -2,24 +2,15 @@
 
 
 def build_heap(data):
-    n = len(data)
-    levels = int(math.log2(n)) + 1
-    
-    swaps = 0
-    for level in range(levels-2, -1, -1):
-        for i in range(2**level - 1, 2**(level+1) - 1):
-            parent = i
-            left_child = 2*i + 1
-            right_child = 2*i + 2
-            if right_child < n and data[right_child] < data[left_child]:
-                smallest = right_child
-            else:
-                smallest = left_child
-            if smallest < n and data[smallest] < data[parent]:
-                data[parent], data[smallest] = data[smallest], data[parent]
-                swaps += 1
-                
-    return swaps
+     n = len(data)
+    for i in range(n // 2 - 1, -1, -1):
+        if 2 * i + 2 < n:
+            if data[i] > min(data[2 * i + 1], data[2 * i + 2]):
+                return False
+        elif 2 * i + 1 < n:
+            if data[i] > data[2 * i + 1]:
+                return False
+    return True
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
 
