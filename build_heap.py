@@ -17,9 +17,9 @@ def main():
     atbilde = input("F vai I?")
     if "I" in atbilde:
        n = int(input())
-       parents = list(map(int,input().split()))
-       assert len(parents) == n
-       swaps = heapsort(parents)
+       h = list(map(int,input().split()))
+       assert len(h) == n
+       swaps = heapsort(h)
        print(len(swaps))
        for i, j in swaps:
            print(i,j)
@@ -29,9 +29,9 @@ def main():
              try: 
                  with open(file) as file1:
                     n = int(file1.readline())
-                    parents = list(map(int, file1.readline().split()))
-                    assert len(parents) == n
-                    swaps = heapsort(parents)
+                    h = list(map(int, file1.readline().split()))
+                    assert len(h) == n
+                    swaps = heapsort(h)
                     print(len(swaps))
                     for i, j in swaps:
                         print(i, j)
