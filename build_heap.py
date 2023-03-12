@@ -4,7 +4,7 @@ import heapq as heap
 
 def heapsort(kaudze):
     swap = []
-    for value in kaudzee:
+    for value in kaudze:
         heappush(swap, value) # Ieliek vērtības kaudzē nemainot to kārtību
     return [heappop(swap) for i in range(len(swap))] # Atgriež mazāko vērtību nemainot kaudzes kārtību 
 
