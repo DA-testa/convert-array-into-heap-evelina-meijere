@@ -1,12 +1,12 @@
 # python3
-import heapq 
+import heapq
 
 
 def heapsort(iterable):
     h = []
     for value in iterable:
         heappush(h, value)
-        return [heappop(h) for i in range(len(h))]
+    return [heappop(h) for i in range(len(h))]
 
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
@@ -18,7 +18,7 @@ def main():
     if "I" in atbilde:
        n = int(input())
        parents = list(map(int,input().split()))
-       assert len(parents) == n
+       assert len(h) == n
        swaps = heapsort(parents)
        print(len(swaps))
        for i, j in swaps:
@@ -31,7 +31,7 @@ def main():
                  with open(file) as file1:
                     n = int(file1.readline())
                     parents = list(map(int, file1.readline().split()))
-                    assert len(parents) == n
+                    assert len(h) == n
                     swaps = heapsort(parents)
                     print(len(swaps))
                     for i, j in swaps:
