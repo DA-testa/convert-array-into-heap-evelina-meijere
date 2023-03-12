@@ -1,12 +1,12 @@
 # python3
-import heapq
+import heapq as heap
 
 
 def heapsort(iterable):
     h = []
     for value in iterable:
-        heappush(h, value)
-    return [heappop(h) for i in range(len(h))]
+        heappush(h, value) # Push the value item onto the heap, maintaining the heap invariant.
+    return [heappop(h) for i in range(len(h))] # Pop and return the smallest item from the heap, maintaining the heap invariant. If the heap is empty, IndexError is raised. To access the smallest item without popping it, use heap[0].
 
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
@@ -18,7 +18,7 @@ def main():
     if "I" in atbilde:
        n = int(input())
        parents = list(map(int,input().split()))
-       assert len(h) == n
+       assert len(parents) == n
        swaps = heapsort(parents)
        print(len(swaps))
        for i, j in swaps:
@@ -26,12 +26,11 @@ def main():
     elif "F" in atbilde:
          failanos = input()
          file = './test/' + failanos
-         if "a" not in failanos:
              try: 
                  with open(file) as file1:
                     n = int(file1.readline())
                     parents = list(map(int, file1.readline().split()))
-                    assert len(h) == n
+                    assert len(parents) == n
                     swaps = heapsort(parents)
                     print(len(swaps))
                     for i, j in swaps:
@@ -66,5 +65,5 @@ def main():
 
 
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+main()
