@@ -21,8 +21,8 @@ def main():
     if "I" in atbilde:
        n = int(input())
        parents = list(map(int,input().split()))
-       assert len(queue) == n
-       swaps = find_min_heap(queue)
+       assert len(min_element) == n
+       swaps = find_min_heap(min_element)
        print(len(swaps))
        for i, j in swaps:
            print(i,j)
@@ -34,8 +34,8 @@ def main():
                  with open(file) as file1:
                     n = int(file1.readline())
                     parents = list(map(int, file1.readline().split()))
-                    assert len(queue) == n
-                    swaps = find_min_heap(queue)
+                    assert len(min_element) == n
+                    swaps = find_min_heap(min_element)
                     print(len(swaps))
                     for i, j in swaps:
                         print(i, j)
