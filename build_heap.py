@@ -26,6 +26,7 @@ def main():
     elif "F" in atbilde:
          failanos = input()
          file = './test/' + failanos
+         if "a" not in failanos:
              try: 
                  with open(file) as file1:
                     n = int(file1.readline())
