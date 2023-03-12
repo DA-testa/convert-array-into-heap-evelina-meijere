@@ -1,21 +1,15 @@
 # python3
-import heapq
 
 
-def build_min_heap(arr):
-    n = len(arr)
-    for i in range(n // 2, -1, -1):
-        heapify_up(arr, i)
 
-def heapify_up(arr, i):
-    while i > 0:
-        parent = (i - 1) // 2
-        if arr[parent] > arr[i]:
-            arr[parent], arr[i] = arr[i], arr[parent]
-            i = parent
-        else:
-            break
+from queue import PriorityQueue
 
+def find_min_heap(queue):
+    min_element = float('inf')
+    for elem in queue.queue:
+        if elem < min_element:
+            min_element = elem
+    return min_element
 
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
@@ -27,8 +21,8 @@ def main():
     if "I" in atbilde:
        n = int(input())
        parents = list(map(int,input().split()))
-       assert len(arr) == n
-       swaps = build_min_heap(arr)
+       assert len(queue) == n
+       swaps = find_min_heap(queue)
        print(len(swaps))
        for i, j in swaps:
            print(i,j)
@@ -40,8 +34,8 @@ def main():
                  with open(file) as file1:
                     n = int(file1.readline())
                     parents = list(map(int, file1.readline().split()))
-                    assert len(arr) == n
-                    swaps = build_min_heap(arr)
+                    assert len(queue) == n
+                    swaps = find_min_heap(queue)
                     print(len(swaps))
                     for i, j in swaps:
                         print(i, j)
@@ -52,7 +46,6 @@ def main():
              print("nepareizs nosaukums")
              return
 
-    print(compute_height(n, parents))
     
     # TODO : add input and corresponding checks
     # add another input for I or F 
