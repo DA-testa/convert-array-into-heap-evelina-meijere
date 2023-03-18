@@ -1,12 +1,18 @@
 # python3
-import heapq as heap
-
-
 def heapsort(kaudze):
-    swap = []
-    for value in kaudze:
-        heappush(swap, value) # Ieliek vērtības kaudzē nemainot to kārtību
-    return [heappop(swap) for i in range(len(swap))] # Atgriež mazāko vērtību nemainot kaudzes kārtību 
+    n = len(kaudze)
+    swaps = []
+    for i in range(n// 2-1, -1, -1):
+        left = 2*i+1
+        right = 2 * i + 1
+        if left < n and kaudze[left] < kaudze [i]:
+            kaudze[left], kaudze [i] = kaudze[i], kaudze[left]
+            swaps.append((kaudze[left], kaudze[i]))
+        if right < n and kaudze [right] < kaudze[i]:
+            kaudze[right], kaudze[i] = kaudze[i], kaudze[right]
+            swaps.append((kaudze[right], kaudze[i]))
+    return kaudze[::-1], swaps[::-1]
+
 
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
@@ -16,33 +22,28 @@ def heapsort(kaudze):
 def main():
     atbilde = input("F vai I?")
     if "I" in atbilde:
-       n = int(input())
-       h = list(map(int,input().split()))
-       assert len(h) == n
-       swaps = heapsort(h)
-       print(len(swaps))
-       for i, j in swaps:
-           print(i,j)
+       b = int(input())
+       kaudze = list(map(int,input().split()))
+       min = kaudze_to_min(kaudze)
+       print(" ".join(map(str, min)))
     elif "F" in atbilde:
          failanos = input()
          file = './test/' + failanos
          if "a" not in failanos:
              try: 
-                 with open(file) as file1:
-                    n = int(file1.readline())
-                    h = list(map(int, file1.readline().split()))
-                    assert len(h) == n
-                    swaps = heapsort(h)
-                    print(len(swaps))
-                    for i, j in swaps:
-                        print(i, j)
+                 with open(file, "r") as file1:
+                    kaudze = list(map(int, file.readLine().split()))
+                 min, swaps = kaudze_to_min(kaudze)
+                 for swap in swaps:
+                    print(f"{swap[0]} un {swap[1]}")
+                 with open(file2, "w") as file1:
+                    file.write(" ".join(map(str,min)))
              except Exception as kluda:
                  print("kluda:", str(kluda))
                  return
          else:
              print("nepareizs nosaukums")
              return
-
     
     # TODO : add input and corresponding checks
     # add another input for I or F 
