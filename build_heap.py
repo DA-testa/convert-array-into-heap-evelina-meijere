@@ -30,14 +30,13 @@ def heapsort(kaudze):
 
 
 def main():
-    atbilde = input("F vai I?")
+    try:
+        atbilde = input("F vai I?")
+    except EOFError:
+        print("Nekas nav ievadīts")
+        return
 
     if "F" in atbilde:
-        try:
-            atbilde = input()
-        except EOFError:
-            print("No more input")
-
          failanos = input("Faila nosaukums: ")
          file = './tests/' + failanos
          if os.path.isfile(file) and os.stat(file).st_size > 0:
