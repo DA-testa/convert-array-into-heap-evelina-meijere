@@ -18,6 +18,7 @@ def heapsort(kaudze):
             else : break
     if len(swaps)>4*len(kaudze):
         raise Exception("EXCEPTION")
+
     return swaps
    
 
@@ -29,18 +30,20 @@ def heapsort(kaudze):
 
 def main():
     atbilde = input("F vai I?")
-    if "I" in atbilde:
-       k = int(input())
-       kaudze = list(map(int,input().split()))
-    
-    elif "F" in atbilde:
+
+    if "F" in atbilde:
          failanos = input("Faila nosaukums: ")
          file = './tests/' + failanos
-         with open(file, "r") as file1:
+         with open(file, mode="r") as file1:
                  k = int(file1.readline())
                  kaudze = list(map(int,file1.readline().split()))
+    
+    elif "I" in atbilde:
+         k = int (input())
+         kaudze = list(map(int, input().split()))
             
     else : print("ERROR")
+
     assert len(kaudze) == k
     swaps = heapsort(kaudze)
 
