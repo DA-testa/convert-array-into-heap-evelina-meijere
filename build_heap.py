@@ -13,7 +13,7 @@ def heapsort(kaudze):
                 o = right
             if i !=o:
                 kaudze[i], kaudze[o]=kaudze[o], kaudze[i]
-                swaps.append((i,j))
+                swaps.append((i,o))
                 i=j 
             else : break
     if len(swaps)>4*len(kaudze):
