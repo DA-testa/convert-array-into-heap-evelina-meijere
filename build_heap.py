@@ -1,4 +1,6 @@
+import os.path
 # python3
+
 def heapsort(kaudze):
     n = len(kaudze)
     swaps = []
@@ -23,8 +25,6 @@ def heapsort(kaudze):
    
 
 
-    # TODO: Creat heap and heap sort
-    # try to achieve  O(n) and not O(n2)
 
 
 
@@ -34,15 +34,21 @@ def main():
     if "F" in atbilde:
          failanos = input("Faila nosaukums: ")
          file = './tests/' + failanos
+         if os.path.isfile(file) and os.stat(file).st_size > 0:
          with open(file, mode="r") as file1:
                  k = int(file1.readline())
                  kaudze = list(map(int,file1.readline().split()))
+        else:
+            print("Error: File not found or empty")
+            return
     
     elif "I" in atbilde:
          k = int (input())
          kaudze = list(map(int, input().split()))
             
-    else : print("ERROR")
+    else : 
+        print("ERROR")
+        return
 
     assert len(kaudze) == k
     swaps = heapsort(kaudze)
