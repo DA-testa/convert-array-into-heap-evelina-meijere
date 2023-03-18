@@ -9,12 +9,12 @@ def heapsort(kaudze):
             right = 2 * o + 1
             if left < n and kaudze[left] < kaudze [o]:
                 o = left
-            if right < n and kaudze [right] < kaudze[i]:
+            if right < n and kaudze [right] < kaudze[o]:
                 o = right
             if i !=o:
                 kaudze[i], kaudze[o]=kaudze[o], kaudze[i]
                 swaps.append((i,o))
-                i=j 
+                i=o 
             else : break
     if len(swaps)>4*len(kaudze):
         raise Exception("par daudz")
