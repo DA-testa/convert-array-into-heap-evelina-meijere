@@ -1,4 +1,5 @@
 import os.path
+import sys
 # python3
 
 def heapsort(kaudze):
@@ -32,6 +33,11 @@ def main():
     atbilde = input("F vai I?")
 
     if "F" in atbilde:
+        try:
+            atbilde = input()
+        except EOFError:
+            print("No more input")
+
          failanos = input("Faila nosaukums: ")
          file = './tests/' + failanos
          if os.path.isfile(file) and os.stat(file).st_size > 0:
