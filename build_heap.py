@@ -6,7 +6,7 @@ def heapsort(kaudze):
         o = i 
         while True:
             left = 2*o+1
-            right = 2 * o + 1
+            right = 2 * o + 2
             if left < n and kaudze[left] < kaudze [o]:
                 o = left
             if right < n and kaudze [right] < kaudze[o]:
