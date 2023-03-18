@@ -2,16 +2,24 @@
 def heapsort(kaudze):
     n = len(kaudze)
     swaps = []
-    for i in range(n// 2-1, -1, -1):
-        left = 2*i+1
-        right = 2 * i + 1
-        if left < n and kaudze[left] < kaudze [i]:
-            kaudze[left], kaudze [i] = kaudze[i], kaudze[left]
-            swaps.append((kaudze[left], kaudze[i]))
-        if right < n and kaudze [right] < kaudze[i]:
-            kaudze[right], kaudze[i] = kaudze[i], kaudze[right]
-            swaps.append((kaudze[right], kaudze[i]))
-    return kaudze[::-1], swaps[::-1]
+    for i in range(n// 2)-1, -1, -1):
+        o = i 
+        while True:
+            left = 2*o+1
+            right = 2 * o + 1
+            if left < n and kaudze[left] < kaudze [o]:
+                o = left
+            if right < n and kaudze [right] < kaudze[i]:
+                o = right
+            if i !=o:
+                kaudze[i], kaudze[o]=kaudze[o], kaudze[i]
+                swaps.append((i,j))
+                i=j 
+            else : break
+    if len(swaps)>4*len(kaudze):
+        raise Exception("par daudz")
+    return swaps
+   
 
 
     # TODO: Creat heap and heap sort
@@ -22,28 +30,27 @@ def heapsort(kaudze):
 def main():
     atbilde = input("F vai I?")
     if "I" in atbilde:
-       b = int(input())
+       k = int(input())
        kaudze = list(map(int,input().split()))
-       min = kaudze_to_min(kaudze)
-       print(" ".join(map(str, min)))
+    
     elif "F" in atbilde:
-         failanos = input()
-         file = './test/' + failanos
-         if "a" not in failanos:
-             try: 
-                 with open(file, "r") as file1:
-                    kaudze = list(map(int, file.readLine().split()))
-                 min, swaps = kaudze_to_min(kaudze)
-                 for swap in swaps:
-                    print(f"{swap[0]} un {swap[1]}")
-                 with open(file2, "w") as file1:
-                    file.write(" ".join(map(str,min)))
-             except Exception as kluda:
-                 print("kluda:", str(kluda))
-                 return
-         else:
-             print("nepareizs nosaukums")
-             return
+         failanos = input("Faila nosaukums: ")
+         file = './tests/' + failanos
+         with open(file, "r") as file1:
+                 k = int(file1.readLine())
+                 kaudze = list(map(int,file1.readLine().split()))
+            
+    else : print("ERROR")
+    assert len(kaudze) == n
+    swaps = heapsort(kaudze)
+
+    print(len(swaps))
+    for i, o in swaps:
+        print(i, o)
+
+if __name__ == "__main__":
+    main()
+    
     
     # TODO : add input and corresponding checks
     # add another input for I or F 
