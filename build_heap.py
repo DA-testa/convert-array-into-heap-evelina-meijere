@@ -25,10 +25,6 @@ def heapsort(kaudze):
     return swaps
    
 
-
-
-
-
 def main():
     try:
         atbilde = input("F vai I?")
