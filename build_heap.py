@@ -30,7 +30,7 @@ def heapsort(kaudze):
 def main():
     atbilde = input("F vai I?")
     if "I" in atbilde:
-       n = int(input())
+       k = int(input())
        kaudze = list(map(int,input().split()))
     
     elif "F" in atbilde:
@@ -41,7 +41,7 @@ def main():
                  kaudze = list(map(int,file1.readline().split()))
             
     else : print("ERROR")
-    assert len(kaudze) == n
+    assert len(kaudze) == k
     swaps = heapsort(kaudze)
 
     print(len(swaps))
