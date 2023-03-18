@@ -17,7 +17,7 @@ def heapsort(kaudze):
                 i=o 
             else : break
     if len(swaps)>4*len(kaudze):
-        raise Exception("par daudz")
+        raise Exception("EXCEPTION")
     return swaps
    
 
@@ -37,8 +37,8 @@ def main():
          failanos = input("Faila nosaukums: ")
          file = './tests/' + failanos
          with open(file, "r") as file1:
-                 k = int(file1.readLine())
-                 kaudze = list(map(int,file1.readLine().split()))
+                 k = int(file1.readline())
+                 kaudze = list(map(int,file1.readline().split()))
             
     else : print("ERROR")
     assert len(kaudze) == n
