@@ -30,7 +30,7 @@ def heapsort(kaudze):
 def main():
     atbilde = input("F vai I?")
     if "I" in atbilde:
-       k = int(input())
+       n = int(input())
        kaudze = list(map(int,input().split()))
     
     elif "F" in atbilde:
