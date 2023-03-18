@@ -2,7 +2,7 @@
 def heapsort(kaudze):
     n = len(kaudze)
     swaps = []
-    for i in range(n// 2)-1, -1, -1)):
+    for i in range((n// 2)-1, -1, -1):
         o = i 
         while True:
             left = 2*o+1
