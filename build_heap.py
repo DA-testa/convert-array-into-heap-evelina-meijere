@@ -35,10 +35,10 @@ def main():
          failanos = input("Faila nosaukums: ")
          file = './tests/' + failanos
          if os.path.isfile(file) and os.stat(file).st_size > 0:
-         with open(file, mode="r") as file1:
+             with open(file, mode="r") as file1:
                  k = int(file1.readline())
                  kaudze = list(map(int,file1.readline().split()))
-        else:
+         else:
             print("Error: File not found or empty")
             return
     
